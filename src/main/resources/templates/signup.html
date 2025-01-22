@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <div class="my-card mt-3">
+
+                        <div th:if="${message}" th:class="'alert ' + ${message.type}" role="alert">
+                            <p th:text="${message.content}"></p>
+                        </div>
+
+                        <div class="container text-center">
+                            <img class="" style="width:80px" src="" th:src="@{/img/form.png}" alt="">
+
+
+                        </div>
+                        <h1 class="text-center">Register Here</h1>
+
+                        <form action="" th:action="@{/do_register}" method="post" th:object="${user}">
+
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input placeholder="Enter Name" type="text" class="form-control" id="name" name="name"
+                                       th:value="${user.name}" required>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input placeholder="Enter Email" type="email" class="form-control" id="email"
+                                       th:value="${user.email}" name="email" required>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input placeholder="Enter password" type="password" class="form-control" id="password"
+                                       name="password" required>
+
+                            </div>
+
+                            <div class="form-group">
+                                <textarea class="form-control" placeholder="Enter something yourself" name="about" id=""
+                                          th:value="${user.about}" rows="4">
+
+                                </textarea>
+                            </div>
+
+                            <div class="form-group form-check">
+
+
+                                <input type="checkbox" name="agreement" class="form-check-input" id="agreement"/>
+                                <label for="agreement"> Accept terms and conditions</label>
+                            </div>
+
+                            <div class="container text-center">
+                                <button type="submit" class="btn  text-white btn-block"
+                                        style="background: rgb(70, 33, 25)">
+                                    Submit
+                                </button>
+
+                                <button type="reset" class="btn text-white btn-block"
+                                        style="background: rgb(70, 33, 25)">
+                                    Reset
+                                </button>
+                            </div>
+                            <div class="container text-container mt-2">
+                                <label for="login-link" class="form-label">Already have an account?</label>
+                                <a id="login-link" href="" th:href="@{/signin}" class="btn text-white btn-block"
+                                   style="background: rgb(70, 33, 25)">
+                                    Login Here
+                                </a>
+                            </div>
+
+
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+</body>
+</html>

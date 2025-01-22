@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{normal/base::layout(~{::section})}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<section>
+    <div class="card shadow-sm " style="max-width: 1200px; margin: auto; border-radius: 10px;">
+        <div class="card-body">
+            <h1 class="text-center text-primary" style="font-size: 2rem; font-weight: bold;">All Contacts</h1>
+            <div class="container-fluid mt-2">
+                <div class="row">
+
+                    <!-- Repeat this block for each contact -->
+                    <div class="col-md-4 mb-4" th:each="contact : ${contacts}">
+                        <div class="card h-100 shadow-sm" style="border-radius: 10px;">
+                            <div class="card-body">
+
+                                <!-- Contact Details -->
+                                <h4 class="card-title text-primary text-center" th:text="${contact.name + ' ' + contact.secondName}">
+                                    Contact Name
+                                </h4>
+                                <p class="card-text">
+                                    <strong>Id:</strong> <span th:text="${contact.cid}">ID</span><br>
+                                    <strong>Work:</strong> <span th:text="${contact.work}">Work Details</span><br>
+                                    <strong>Email:</strong> <span th:text="${contact.email}">Email Address</span><br>
+                                    <strong>Phone:</strong> <span th:text="${contact.phone}">Phone Number</span><br>
+                                    <strong>Description:</strong>
+                                    <span th:text="${contact.description}">Contact Description</span>
+                                </p>
+                                <!-- Action Buttons -->
+                                <div class="text-center">
+
+                                    <form th:action="@{'/user/update-contact/'+${contact.cid}}" method="post"
+                                       class="btn btn-warning btn-sm" style="border-radius: 5px;">
+                                        <button type="submit" class="fa fa-edit"></button> Edit
+                                    </form>
+                                    <a th:href="@{/user/contact/delete/{cid}(cid=${contact.cid})}"
+                                       class="btn btn-danger btn-sm" style="border-radius: 5px;">
+                                        <i class="fa fa-trash"></i> Delete
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</section>
+</body>
+</html>

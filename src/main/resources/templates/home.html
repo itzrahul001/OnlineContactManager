@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<section class="banner d-flex justify-content-center align-items-center">
+
+    <div class="text-center">
+        <h1>Online Contact Manager</h1>
+        <p>Start collecting your contact in very smart way.</p>
+        <a th:href="@{/signup}" href="signup.html">
+            <button class="btn  text-white" style="background: rgb(70, 33, 25)">Get Started</button>
+        </a>
+    </div>
+
+</section>
+</body>
+</html>

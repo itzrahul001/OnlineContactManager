@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="normal/base::layout(~{::section})">
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+</head>
+<body>
+<section>
+  <div class="container">
+    <div class="profile-container">
+      <div class="profile-header">
+   <img th:src="@{/img/profilepic.png}" alt="Profile Image" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover;">
+        <h2 th:text="${user.name}">User Name</h2>
+        <p th:text="${user.email}">User Email</p>
+      </div>
+
+      <table class="table table-striped profile-details">
+        <tr>
+          <th>Role:</th>
+          <td th:text="${user.role}">User Role</td>
+        </tr>
+        <tr>
+          <th>Enabled:</th>
+          <td th:text="${user.enabled ? 'Yes' : 'No'}">Enabled Status</td>
+        </tr>
+        <tr>
+          <th>About:</th>
+          <td th:text="${user.about}">User About</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+</section>
+</body>
+</html>

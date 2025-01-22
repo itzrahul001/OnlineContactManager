@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="normal/base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<section>
+    <div class="card shadow-sm " style="max-width: 600px; margin: auto; border-radius: 10px;">
+        <div class="card-body">
+            <h1 class="text-center text-primary" style="font-size: 2rem; font-weight: bold;">Add Contact</h1>
+            <!-- Success Message -->
+            <div th:if="${message}" class="alert alert-success text-center mt-3" role="alert">
+                <i class="fa fa-check-circle"></i> <span th:text="${message}"></span>
+            </div>
+
+            <div class="container-fluid mt-4">
+                <form action="" th:object="${contact}" enctype="multipart/form-data" method="post"
+                      th:action="@{/user/process-contact}" class="mt-2">
+
+                    <!-- Name Input -->
+                    <div class="form-group">
+                        <label for="name" class="font-weight-bold">First Name</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <i class="fa fa-user"></i>
+                                </div>
+                            </div>
+                            <input required name="name" type="text" id="name" class="form-control" th:field="*{name}"
+                                   placeholder="Enter first name" style="border-radius: 0 5px 5px 0;">
+                        </div>
+                    </div>
+
+                    <!-- Last Name Input -->
+                    <div class="form-group">
+                        <label for="secondName" class="font-weight-bold">Last Name</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <i class="fa fa-plus"></i>
+                                </div>
+                            </div>
+                            <input required name="secondName" type="text" id="secondName" class="form-control" th:field="*{secondName}"
+                                   placeholder="Enter last name" style="border-radius: 0 5px 5px 0;">
+                        </div>
+                    </div>
+
+                    <!-- Work Input -->
+                    <div class="form-group">
+                        <label for="work" class="font-weight-bold">Work</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <i class="fa fa-briefcase"></i>
+                                </div>
+                            </div>
+                            <input name="work" required type="text" id="work" class="form-control" th:field="*{work}"
+                                   placeholder="Enter work details" style="border-radius: 0 5px 5px 0;">
+                        </div>
+                    </div>
+
+                    <!-- Email Input -->
+                    <div class="form-group">
+                        <label for="email" class="font-weight-bold">Email</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <i class="fa fa-envelope"></i>
+                                </div>
+                            </div>
+                            <input required name="email" type="email" id="email" class="form-control" th:field="*{email}"
+                                   placeholder="Enter email address" style="border-radius: 0 5px 5px 0;">
+                        </div>
+                    </div>
+
+                    <!-- Phone Input -->
+                    <div class="form-group">
+                        <label for="phone" class="font-weight-bold">Phone</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <i class="fa fa-phone"></i>
+                                </div>
+                            </div>
+                            <input required name="phone" type="text" id="phone" class="form-control" th:field="*{phone}"
+                                   placeholder="Enter phone number" style="border-radius: 0 5px 5px 0;">
+                        </div>
+                    </div>
+
+                    <!-- Description Input -->
+                    <div class="form-group">
+                        <label for="description" class="font-weight-bold">Description</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <i class="fa fa-info-circle"></i>
+                                </div>
+                            </div>
+                            <textarea required name="description" id="description" class="form-control" th:field="*{description}"
+                                      rows="3" placeholder="Enter a brief description" style="border-radius: 0 5px 5px 0;"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="text-center mt-4">
+                        <button type="submit" class="btn btn-primary btn-block" style="border-radius: 5px;">
+                            <i class="fa fa-save"></i> Save Contact
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</section>
+</body>
+</html>

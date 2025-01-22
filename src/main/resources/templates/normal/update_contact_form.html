@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{normal/base::layout(~{::section})}">
+
+<head>
+  <meta charset="UTF-8">
+  <title th:text="${title}">Edit Contact</title>
+</head>
+<body>
+<section>
+  <div class="card shadow-sm " style="max-width: 800px; margin: auto; border-radius: 10px;">
+    <div class="card-body">
+      <h1 class="text-center text-primary" style="font-size: 2rem; font-weight: bold;"
+          th:text="'Edit Contact: ' + ${contact.name}">Edit Contact</h1>
+      <form th:action="@{/user/process-update}" th:object="${contact}" method="post">
+        <input type="hidden" name="_csrf" th:value="${_csrf.token}" />
+        <input type="hidden" th:field="*{cid}" />
+
+        <div class="form-group">
+          <label for="name">First Name</label>
+          <input type="text" class="form-control" id="name" th:field="*{name}" placeholder="Enter first name" required>
+        </div>
+        <div class="form-group">
+          <label for="secondName">Last Name</label>
+          <input type="text" class="form-control" id="secondName" th:field="*{secondName}" placeholder="Enter last name" required>
+        </div>
+        <div class="form-group">
+          <label for="work">Work</label>
+          <input type="text" class="form-control" id="work" th:field="*{work}" placeholder="Enter work details" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" th:field="*{email}" placeholder="Enter email address" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input type="text" class="form-control" id="phone" th:field="*{phone}" placeholder="Enter phone number" required>
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea class="form-control" id="description" th:field="*{description}" placeholder="Enter description" rows="3" required></textarea>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary" style="border-radius: 5px;">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+</body>
+</html>
