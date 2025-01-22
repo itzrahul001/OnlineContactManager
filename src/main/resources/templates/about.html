@@ -3,12 +3,80 @@
       th:replace="base::layout(~{::section})">
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Contact Manager</title>
 </head>
-<body>
+<body style="font-family: 'Roboto', sans-serif; margin: 0; padding: 0; background: linear-gradient(120deg, #f8f9fa, #e9ecef); color: #343a40; line-height: 1.6;">
 <section>
-    <h1>About Page</h1>
-    <p>Welcome to the about page!</p>
+    <header style="background: linear-gradient(90deg, #6a11cb, #2575fc); color: white; text-align: center; padding: 30px 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <h1 style="font-size: 2.5em; margin-bottom: 10px;">About Online Contact Manager</h1>
+        <p style="font-size: 1.2em; margin-top: 0;">Efficiently manage your contacts with ease and security</p>
+    </header>
+
+    <main style="margin: 20px auto; max-width: 1000px;">
+        <section style="margin-bottom: 40px;">
+            <h2 style="font-size: 2em; margin-bottom: 20px; border-left: 5px solid #6a11cb; padding-left: 15px;">Overview</h2>
+            <p>
+                The <strong>Online Contact Manager</strong> is a robust Spring Boot application designed to simplify the process of
+                managing personal and professional contacts. Built with a focus on security and user experience, this application
+                incorporates key technologies like Spring Security and Thymeleaf for seamless functionality and a responsive UI.
+            </p>
+        </section>
+
+        <section style="margin-bottom: 40px;">
+            <h2 style="font-size: 2em; margin-bottom: 20px; border-left: 5px solid #6a11cb; padding-left: 15px;">Features</h2>
+            <div style="padding: 20px; border-radius: 10px; background: white; box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1); margin-bottom: 20px;">
+                <h5 style="font-size: 1.5em; margin-bottom: 10px;"><strong>User Authentication and Security</strong></h5>
+                <p>
+                    Implemented using <strong>Spring Security</strong>, ensuring secure login and protection against unauthorized access.
+                </p>
+            </div>
+            <div style="padding: 20px; border-radius: 10px; background: white; box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1); margin-bottom: 20px;">
+                <h5 style="font-size: 1.5em; margin-bottom: 10px;"><strong>Contact Management</strong></h5>
+                <ul style="padding-left: 20px;">
+                    <li style="margin-bottom: 10px;">Add new contacts easily with a user-friendly form.</li>
+                    <li style="margin-bottom: 10px;">Update existing contact details as required.</li>
+                    <li style="margin-bottom: 10px;">View and manage all your contacts in one place.</li>
+                </ul>
+            </div>
+            <div style="padding: 20px; border-radius: 10px; background: white; box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1); margin-bottom: 20px;">
+                <h5 style="font-size: 1.5em; margin-bottom: 10px;"><strong>Responsive Design</strong></h5>
+                <p>
+                    Built using <strong>Thymeleaf</strong> and inline CSS for a clean and mobile-friendly interface.
+                </p>
+            </div>
+        </section>
+
+        <section style="margin-bottom: 40px;">
+            <h2 style="font-size: 2em; margin-bottom: 20px; border-left: 5px solid #6a11cb; padding-left: 15px;">Technologies Used</h2>
+            <ul style="padding-left: 20px;">
+                <li style="margin-bottom: 10px;"><strong>Spring Boot:</strong> For creating a robust and scalable application backend.</li>
+                <li style="margin-bottom: 10px;"><strong>Spring Security:</strong> To handle user authentication and authorization securely.</li>
+                <li style="margin-bottom: 10px;"><strong>Thymeleaf:</strong> For dynamic server-side rendering of HTML templates.</li>
+                <li style="margin-bottom: 10px;"><strong>Hibernate:</strong> For database operations and ORM functionality.</li>
+            </ul>
+        </section>
+
+        <section style="margin-bottom: 40px;">
+            <h2 style="font-size: 2em; margin-bottom: 20px; border-left: 5px solid #6a11cb; padding-left: 15px;">Future Enhancements</h2>
+            <p>
+                The project aims to include additional features such as:
+            </p>
+            <ul style="padding-left: 20px;">
+                <li style="margin-bottom: 10px;">Role-based access control for advanced user management.</li>
+                <li style="margin-bottom: 10px;">Integration with third-party APIs for importing/exporting contacts.</li>
+                <li style="margin-bottom: 10px;">Enhanced search functionality with filters.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer style="background: linear-gradient(90deg, #2575fc, #6a11cb); color: white; text-align: center; padding: 20px 10px; position: relative; width: 100%;">
+        <a href="https://twitter.com" target="_blank" style="color: white; margin: 0 15px; transition: color 0.3s ease; text-decoration: none;">  <i class="fab fa-twitter"></i></a>
+        <a href="https://instagram.com" target="_blank" style="color: white; margin: 0 15px; transition: color 0.3s ease; text-decoration: none;">  <i class="fab fa-instagram"></i></a>
+        <a href="https://linkedin.com" target="_blank" style="color: white; margin: 0 15px; transition: color 0.3s ease; text-decoration: none;"> <i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com" target="_blank" style="color: white; margin: 0 15px; transition: color 0.3s ease; text-decoration: none;"> <i class="fab fa-github"></i></a>
+        <p style="margin-top: 15px; font-size: 0.9em;">&copy; 2025 Online Contact Manager. Designed and maintained by Rahul Yadav. All rights reserved.</p>
+    </footer>
 </section>
 </body>
 </html>

@@ -11,7 +11,9 @@ background:#e2e2e2!important;
     height:93vh;
     background:black;
     color:white;
-   background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(../img/homeimg.jpg);
+   background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(../img/home1.jpg);
+    background-position:center;
+
     background-size:cover;
 
 }
@@ -54,6 +56,7 @@ border-bottom-right-radius: .3rem;
     left: -250px;  Sidebar is initially hidden off-screen
     width: 250px;
     height: 100%;
+    background: linear-gradient(90deg, #6a11cb, #2575fc);
     background-color: #44201a;
     transition: all 0.3s ease;
     z-index: 1000;

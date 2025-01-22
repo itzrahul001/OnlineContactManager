@@ -12,7 +12,7 @@
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark " style=" background: rgb(70, 33, 25)">
+<nav class="navbar navbar-expand-lg navbar-dark " style="background: linear-gradient(90deg, #6a11cb, #2575fc);">
     <a class="navbar-brand ml-5" th:href="@{/}" href="/">Online Contact Manager</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,7 +37,7 @@
 
 </nav>
 
-<div class="sidebar">
+<div class="sidebar" >
     <span onclick="toggleSidebar()" class="crossBtn">&times;</span>
     <a href="" th:href="@{/user/profile}" class="item btn btn-primary d-block my-2 custom-link">
         <i class="fa-solid fa-user"></i> Your Profile
