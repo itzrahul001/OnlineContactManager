@@ -3,12 +3,15 @@ package com.example.OnlineContactManager.controller;
 
 import com.example.OnlineContactManager.dao.ContactRepository;
 import com.example.OnlineContactManager.dao.UserRepository;
+import com.example.OnlineContactManager.helper.Message;
 import com.example.OnlineContactManager.models.Contact;
 import com.example.OnlineContactManager.models.User;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -23,6 +26,9 @@ public class UserController {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
 
     @ModelAttribute
@@ -130,5 +136,39 @@ public class UserController {
         model.addAttribute("title", "User Profile");
         return "normal/show-profile";
     }
+
+    //open setting handler
+    @RequestMapping("/settings")
+    public String openSetting(){
+        return "normal/settings";
+
+    }
+
+    @PostMapping("/change-password")
+    public String changePassword(@RequestParam("oldPassword") String oldPassword, @RequestParam("newPassword") String newPassword , Principal principal , HttpSession session ){
+        System.out.println(oldPassword);
+        System.out.println(newPassword);
+
+        String userName=principal.getName();
+        User currentUser=userRepository.getUserByUsername(userName);
+        System.out.println(currentUser.getPassword());
+
+        if (this.bCryptPasswordEncoder.matches(oldPassword, currentUser.getPassword())){
+            //change password
+            currentUser.setPassword(this.bCryptPasswordEncoder.encode(newPassword));
+            this.userRepository.save(currentUser);
+            session.setAttribute("message",new Message("Password Updated....","success"));
+            System.out.println("password Changed");
+        }else{
+            //error
+            session.setAttribute("message",new Message("Enter Correct Password....","danger"));
+            System.out.println("Incorrect old password");
+        }
+
+
+        return "redirect:/user/settings";
+    }
+
+    
 
 }
