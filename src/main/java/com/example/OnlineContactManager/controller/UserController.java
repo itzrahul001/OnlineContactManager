@@ -34,9 +34,8 @@ public class UserController {
     @ModelAttribute
     public void addCommmonData(Model model, Principal principal) {
         String userName = principal.getName();
-        System.out.println("Username :" + userName);
         User user = this.userRepository.getUserByUsername(userName);
-        System.out.println("User :" + user);
+
         model.addAttribute("user", user);
     }
 
@@ -66,7 +65,7 @@ public class UserController {
         contact.setUser(user);
         this.userRepository.save(user);
 
-        System.out.println("Data :" + contact);
+
         model.addAttribute("message", "Contact added successfully!");
 
         return "normal/add_contact_form";
@@ -91,14 +90,14 @@ public class UserController {
 
 
        // model.addAttribute("contacts", user.getContacts());
-        System.out.println("Contacts :" + user.getContacts());
+
         return "normal/show-contact";
     }
 
 
     @RequestMapping("contact/delete/{cid}")
     public String deleteContact(@PathVariable("cid") Integer cid, Model model, Principal principal) {
-        System.out.println("CID :" + cid);
+
         User user = this.userRepository.getUserByUsername(principal.getName());
         Contact contact = this.contactRepository.getContactByCid(cid);
 
@@ -146,23 +145,22 @@ public class UserController {
 
     @PostMapping("/change-password")
     public String changePassword(@RequestParam("oldPassword") String oldPassword, @RequestParam("newPassword") String newPassword , Principal principal , HttpSession session ){
-        System.out.println(oldPassword);
-        System.out.println(newPassword);
+
 
         String userName=principal.getName();
         User currentUser=userRepository.getUserByUsername(userName);
-        System.out.println(currentUser.getPassword());
+
 
         if (this.bCryptPasswordEncoder.matches(oldPassword, currentUser.getPassword())){
             //change password
             currentUser.setPassword(this.bCryptPasswordEncoder.encode(newPassword));
             this.userRepository.save(currentUser);
             session.setAttribute("message",new Message("Password Updated....","success"));
-            System.out.println("password Changed");
+
         }else{
             //error
             session.setAttribute("message",new Message("Enter Correct Password....","danger"));
-            System.out.println("Incorrect old password");
+
         }
 
 

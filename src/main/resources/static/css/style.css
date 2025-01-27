@@ -56,7 +56,10 @@ border-bottom-right-radius: .3rem;
     left: -250px;  Sidebar is initially hidden off-screen
     width: 250px;
     height: 100%;
-    background: linear-gradient(90deg, #6a11cb, #2575fc);
+    background: #8E2DE2;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #4A00E0, #8E2DE2);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #4A00E0, #8E2DE2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
     background-color: #44201a;
     transition: all 0.3s ease;
     z-index: 1000;
