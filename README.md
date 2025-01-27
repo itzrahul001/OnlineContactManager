@@ -21,3 +21,7 @@
 
 #Change Password 
 ![Screenshot 2025-01-24 210234](https://github.com/user-attachments/assets/d6430c98-7f69-4fe5-b53a-485f99684ff8)
+
+#Forgot password(Reset Password)
+![Screenshot 2025-01-27 200958](https://github.com/user-attachments/assets/6eac3ab9-ea0d-46fd-aee3-0566f8977337)
+
